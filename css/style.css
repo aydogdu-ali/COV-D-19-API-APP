@@ -1,0 +1,19 @@
+body {
+  background-image: url("resim1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input {
+  height: 2.3rem;
+  width: 14rem;
+  border-radius: 10px;
+}
+
+button {
+  height: 2.3rem;
+  width: 6rem;
+  
+}
+
+
