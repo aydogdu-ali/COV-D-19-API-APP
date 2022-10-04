@@ -55,7 +55,7 @@ const btn = document.querySelector(".btn");
 console.log(veri);
 console.log(btn);
 
-// butona basınca veri getirme olayı
+// butona basınca veri getirme 
 btn.addEventListener("click", () => {
   if (!veri.value) {
     const newsList = document.getElementById("news-list");
