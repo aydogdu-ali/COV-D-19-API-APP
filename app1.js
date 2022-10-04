@@ -2,6 +2,7 @@ let isError = false;
 let name;
 const getCorona = async function (name) {
   const url = `https://api.collectapi.com/corona/countriesData?country=${name}`;
+
   try {
     const res = await fetch(url, {
       method: "GET",
@@ -15,8 +16,6 @@ const getCorona = async function (name) {
       throw new Error(`Something went wrong: ${res.status} `);
     }
     const data = await res.json();
-
-    debugger;
     // console.log(data);
     renderCorona(data.result);
   } catch (error) {
@@ -29,17 +28,18 @@ const renderCorona = (coronaCountry) => {
 
   console.log(coronaCountry);
 
+  // const { country, totalCases, totalDeaths, totalRecovered } = coronaCountry; //! dest
   coronaCountry
-    .forEach((item) => {
+    .forEach((name) => {
       const newsList = document.getElementById("news-list");
       newsList.innerHTML = `
-    <div class="col-md-6 bg-info ">
-         <div class="card">
-        <h2> Country :<span class="countryName"> ${item.country} </span> </h2>
+    <div class="col-md-6  ">
+         <div class="card bg-info">
+        <h2> Country : <span class="countryName">${name.country}</span> </h2>
          <div class="card-body">
-           <h5 class="card-title"> Total Cases:${item.totalCases}</h5>
-            <p class="card-text"> Total Deaths:${item.totalDeaths}</p>
-           <p class="card-text"> Total Recovere:${item.totalRecovered}</p>
+           <h5 class="card-title"> Total Cases:${name.totalCases}</h5>
+            <p class="card-text"> Total Deaths:${name.totalDeaths}</p>
+           <p class="card-text"> Total Recovere:${name.totalRecovered}</p>
 
           </div>
         </div>
